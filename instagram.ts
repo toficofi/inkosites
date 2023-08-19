@@ -16,11 +16,11 @@ export const getInstagramProfile = async (accessToken: string): Promise<any> => 
 export const getLatestImage = async (accessToken: string): Promise<InstagramImage> => {
     const response = await fetch(`${ROOT}/me/media?fields=${IMAGE_FIELDS}&limit=1&access_token=${accessToken}`);
     const json = await response.json();
-    return json.data.filter((image: any) => image.media_type === "IMAGE")[0]
+    return json.data.filter((image: InstagramImage) => image.media_type === "IMAGE")[0]
 }
 
 export const getAllImages = async (accessToken: string): Promise<InstagramImage[]> => {
     const response = await fetch(`${ROOT}/me/media?fields=${IMAGE_FIELDS}&limit=${LIMIT}&access_token=${accessToken}`);
     const json = await response.json();
-    return json.data.filter((image: any) => image.media_type === "IMAGE");
+    return json.data.filter((image: InstagramImage) => image.media_type === "IMAGE");
 }

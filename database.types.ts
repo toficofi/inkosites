@@ -11,6 +11,8 @@ export interface InstagramImage {
     caption?: string;
     media_type?: string;
     media_url?: string;
+    ai_title?: string;
+    ai_caption?: string;
     timestamp?: string;
     notionId?: string;
 }
