@@ -105,13 +105,13 @@ export const getImage = async (imageID: string): Promise<InstagramImage|null> =>
     }
 }
 
-export const getAllImages = async (accountId: string): Promise<InstagramImage[]> => {
+export const getAllImages = async (account: Account): Promise<InstagramImage[]> => {
     const response = await notion.databases.query({
         database_id: IMAGES_ID,
         filter: {
             property: "account",
             relation: {
-                contains: accountId,
+                contains: account.notionId,
             }
         }
     });
