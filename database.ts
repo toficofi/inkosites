@@ -105,6 +105,20 @@ export const getImage = async (imageID: string): Promise<InstagramImage|null> =>
     }
 }
 
+export const getAllImages = async (accountId: string): Promise<InstagramImage[]> => {
+    const response = await notion.databases.query({
+        database_id: IMAGES_ID,
+        filter: {
+            property: "account",
+            relation: {
+                contains: accountId,
+            }
+        }
+    });
+
+    return response.results.map(convertNotionToImage);
+}
+
 export const updateImage = async (image: InstagramImage, account: Account): Promise<void> => {
     const updatedNotionPage = convertImageToNotion(image, account);
 
