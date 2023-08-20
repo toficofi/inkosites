@@ -15,6 +15,8 @@ export interface InstagramImage {
     ai_caption?: string;
     timestamp?: string;
     notionId?: string;
+    width?: string;
+    height?: string;
 }
 
 export const createEmptyAccount = (id: string): Account => {
@@ -35,6 +37,8 @@ export const createEmptyImage = (id: string): InstagramImage => {
         timestamp: undefined,
         ai_title: undefined,
         ai_caption: undefined,
+        width: undefined,
+        height: undefined,
     }
 }
 
