@@ -33,6 +33,8 @@ export const createEmptyImage = (id: string): InstagramImage => {
         media_type: undefined,
         media_url: undefined,
         timestamp: undefined,
+        ai_title: undefined,
+        ai_caption: undefined,
     }
 }
 
