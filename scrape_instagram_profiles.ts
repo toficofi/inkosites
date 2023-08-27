@@ -1,6 +1,7 @@
+import { createImageCache, saveImageToCache } from "./cache";
 import { createAccount, createImage, createOrUpdateImage, getAccount, getAllAccounts, updateAccount, getAllImages as getAllImagesFromNotion, getAllImages, getImage } from "./database";
 import { createEmptyAccount } from "./database.types";
-import { createImageCache, getAllImages as getAllImagesFromInstagram, getInstagramProfile, saveImageToCache } from "./instagram";
+import { getAllImages as getAllImagesFromInstagram, getInstagramProfile } from "./instagram";
 
 const main = async () => {
     const account = await getAccount("megan");
@@ -9,15 +10,15 @@ const main = async () => {
 
     console.log(`Fetching gallery for ${account?.instagramHandle} from Instagram...`)
     const images = await getAllImagesFromInstagram(accessToken!);
-
-    console.log("Downloading images to cache...")
-
     createImageCache()
     
+    console.log(`Checking ${images.length} images...`)
+
     for (const image of images) {
         const existingImage = await getImage(image.id);
 
         if (!existingImage) {
+            console.log(`New image: ${image.id}, saving...`)
             await saveImageToCache(image)
             await createImage(image, account!);
         }
