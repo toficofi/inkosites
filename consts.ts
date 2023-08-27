@@ -1,0 +1,1 @@
+export const IMAGE_CACHE_DIR = "image-cache";

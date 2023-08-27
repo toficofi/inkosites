@@ -4,6 +4,7 @@ export interface Account {
   instagramHandle?: string;
   instagramAccessToken?: string;
   latestImageID?: string;
+  categories?: string;
 }
 
 export interface InstagramImage {
@@ -21,6 +22,7 @@ export interface InstagramImage {
 
 export const createEmptyAccount = (id: string): Account => {
   return {
+    // These are properties that will exist in the Notion page. The remaining properties are used internally.
     id: id,
     instagramHandle: undefined,
     instagramAccessToken: undefined,

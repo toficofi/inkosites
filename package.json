@@ -4,13 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.ts",
-    "scrape": "nodemon scrape_instagram_profiles.ts"
+    "dev": "concurrently \"npm run dev:express\" \"npm run dev:scrape\"",
+    "dev:express": "nodemon express.ts",
+    "dev:scrape": "nodemon scrape_instagram_profiles.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@notionhq/client": "^2.2.11",
+    "concurrently": "^8.2.1",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "node-fetch": "^2.6.5",
