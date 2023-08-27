@@ -26,5 +26,5 @@ export const createImageCache = () => {
 }
 
 export const getCacheURL = (image: InstagramImage): string => {
-    return `${IMAGE_CACHE_DIR}/${image.id}.jpg`
+    return `/${IMAGE_CACHE_DIR}/${image.id}.jpg`
 }
