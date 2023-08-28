@@ -14,6 +14,8 @@ export interface InstagramImage {
     media_url?: string;
     ai_title?: string;
     ai_caption?: string;
+    ai_category?: string;
+    category?: string;
     timestamp?: string;
     notionId?: string;
     width?: string;
@@ -27,6 +29,7 @@ export const createEmptyAccount = (id: string): Account => {
     instagramHandle: undefined,
     instagramAccessToken: undefined,
     latestImageID: undefined,
+    categories: undefined,
   };
 };
 
