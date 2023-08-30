@@ -159,7 +159,7 @@ export const getAllImages = async (
     },
   });
 
-  return Promise.all(response.results.map(convertNotionToImage));
+  return response.results.map(convertNotionToImage);
 };
 
 export const updateImage = async (
