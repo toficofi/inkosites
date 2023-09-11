@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "concurrently \"npm run dev:express\" \"npm run dev:scrape\"",
     "dev:express": "nodemon express.ts",
-    "dev:scrape": "nodemon scrape_instagram_profiles.ts"
+    "dev:scrape": "nodemon scrape_instagram_profiles.ts",
+    "start": "ts-node index.ts"
   },
   "author": "",
   "license": "ISC",
@@ -16,6 +17,7 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "node-fetch": "^2.6.5",
+    "node-schedule": "^2.1.1",
     "probe-image-size": "^7.2.3",
     "ts-node": "^10.9.1"
   },
