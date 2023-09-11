@@ -15,11 +15,11 @@ const main = async () => {
     console.log(`Checking ${images.length} images...`)
 
     for (const image of images) {
+        await saveImageToCache(image)
         const existingImage = await getImage(image.id);
 
         if (!existingImage) {
             console.log(`New image: ${image.id}, saving...`)
-            await saveImageToCache(image)
             await createImage(image, account!);
         }
     }

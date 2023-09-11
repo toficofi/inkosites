@@ -5,14 +5,18 @@ import { IMAGE_CACHE_DIR } from "./consts"
 
 export const saveImageToCache = async (image: InstagramImage): Promise<InstagramImage> => {
     // Download image and save it locally to /image-cache
+    const fileName = image.id + ".jpg"
+    const filePath = `./image-cache/${fileName}`
+
+    // Check if image exists
+    if (existsSync(filePath)) {
+        return image
+    }
 
     const imageUrl = image.media_url
 
     const response = await fetch(imageUrl)
     const buffer = await response.buffer()
-
-    const fileName = image.id + ".jpg"
-    const filePath = `./image-cache/${fileName}`
 
     writeFileSync(filePath, buffer)
 
