@@ -19,7 +19,7 @@ export const getInstagramProfile = async (accessToken: string): Promise<any> => 
 export const getAllImages = async (accessToken: string): Promise<InstagramImage[]> => {
     const response = await fetch(`${ROOT}/me/media?fields=${IMAGE_FIELDS}&limit=${LIMIT}&access_token=${accessToken}`);
     const json = await response.json();
-    return Promise.all(json.data.filter((image: InstagramImage) => image.media_type === "IMAGE").map(probeInstagramImage))
+    return Promise.all(json.data.filter((image: InstagramImage) => image.media_type === "IMAGE" || image.media_type === "CAROUSEL_ALBUM").map(probeInstagramImage))
 }
 
 export const probeInstagramImage = async (image: InstagramImage): Promise<InstagramImage> => {

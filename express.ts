@@ -7,6 +7,7 @@ import { IMAGE_CACHE_DIR } from './consts';
 dotenv.config();
 const app = express();
 const port = process.env.PORT || 4000;
+const host = process.env.HOST || "localhost";
 
 app.get("/connect", (req, res) => {
     res.send("Hello World!");
