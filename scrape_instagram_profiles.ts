@@ -2,6 +2,7 @@ import { createImageCache, saveImageToCache } from "./cache";
 import { createAccount, createImage, createOrUpdateImage, getAccount, getAllAccounts, updateAccount, getAllImages as getAllImagesFromNotion, getAllImages, getImage } from "./database";
 import { createEmptyAccount } from "./database.types";
 import { getAllImages as getAllImagesFromInstagram, getInstagramProfile } from "./instagram";
+import { triggerBuild } from "./netlify";
 
 const main = async () => {
     const account = await getAccount("megan");
@@ -23,6 +24,8 @@ const main = async () => {
             await createImage(image, account!);
         }
     }
+
+    triggerBuild(account!)
 }
 
 main()

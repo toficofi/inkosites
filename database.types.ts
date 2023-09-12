@@ -5,6 +5,7 @@ export interface Account {
   instagramAccessToken?: string;
   latestImageID?: string;
   categories?: string;
+  buildWebhook?: string;
 }
 
 export interface InstagramImage {
@@ -30,6 +31,7 @@ export const createEmptyAccount = (id: string): Account => {
     instagramAccessToken: undefined,
     latestImageID: undefined,
     categories: undefined,
+    buildWebhook: undefined
   };
 };
 
