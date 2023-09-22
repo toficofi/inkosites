@@ -10,3 +10,7 @@ fork('scrape_instagram_profiles');
 const scraper = schedule.scheduleJob('0 20 * * *', () => {
     fork('scrape_instagram_profiles')
 })
+
+const triggerBuild = schedule.scheduleJob('0 21 * * *', () => {
+    fork('trigger-build')
+})

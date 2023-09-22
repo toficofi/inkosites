@@ -24,8 +24,6 @@ const main = async () => {
             await createImage(image, account!);
         }
     }
-
-    triggerBuild(account!)
 }
 
 main()
