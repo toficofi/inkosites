@@ -14,7 +14,7 @@ export interface InstagramImage {
     media_type?: string;
     media_url?: string;
     ai_title?: string;
-    ai_caption?: string;
+    title?: string;
     ai_category?: string;
     category?: string;
     timestamp?: string;
@@ -43,7 +43,7 @@ export const createEmptyImage = (id: string): InstagramImage => {
         media_url: undefined,
         timestamp: undefined,
         ai_title: undefined,
-        ai_caption: undefined,
+        title: undefined,
         ai_category: undefined,
         category: undefined,
         width: undefined,
