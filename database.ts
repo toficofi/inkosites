@@ -70,6 +70,10 @@ export const createImage = async (
   image: InstagramImage,
   account: Account
 ): Promise<void> => {
+  const categories = account.categories?.split(",")
+
+  image.category = categories?.find((category) => image.caption?.toLowerCase().includes(category.toLowerCase()))
+  
   const newNotionPage = convertImageToNotion(image, account);
 
   const result = await notion.pages.create({

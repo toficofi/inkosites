@@ -15,7 +15,6 @@ export interface InstagramImage {
     media_url?: string;
     ai_title?: string;
     override_title?: string;
-    ai_category?: string;
     category?: string;
     timestamp?: string;
     notionId?: string;
@@ -44,7 +43,6 @@ export const createEmptyImage = (id: string): InstagramImage => {
         timestamp: undefined,
         ai_title: undefined,
         override_title: undefined,
-        ai_category: undefined,
         category: undefined,
         width: undefined,
         height: undefined,

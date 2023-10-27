@@ -9,10 +9,6 @@ const app = express();
 const port = process.env.PORT || 4000;
 const host = process.env.HOST || "localhost";
 
-app.get("/connect", (req, res) => {
-    res.send("Hello World!");
-})
-
 app.use(`/${IMAGE_CACHE_DIR}`, express.static(IMAGE_CACHE_DIR));
 
 app.listen(port, () => {
