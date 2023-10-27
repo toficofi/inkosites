@@ -73,7 +73,9 @@ export const createImage = async (
   const categories = account.categories?.split(",")
 
   image.category = categories?.find((category) => image.caption?.toLowerCase().includes(category.toLowerCase()))
-  
+
+  console.log("Matched category: ", image.category)
+
   const newNotionPage = convertImageToNotion(image, account);
 
   const result = await notion.pages.create({
@@ -88,20 +90,6 @@ export const createImage = async (
   await notion.blocks.children.append({
     block_id: result.id,
     children: [
-      {
-        object: "block",
-        type: "paragraph",
-        paragraph: {
-          rich_text: [
-            {
-              type: "text",
-              text: {
-                content: `Possible categories: ${account.categories}`
-              },
-            },
-          ],
-        },
-      },
       {
         object: "block",
         type: "paragraph",
