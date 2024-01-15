@@ -6,7 +6,7 @@ import { IMAGE_CACHE_DIR } from "./consts";
 
 dotenv.config();
 
-const LIMIT = 50
+const LIMIT = 200
 const ROOT = "https://graph.instagram.com";
 const IMAGE_FIELDS = "id,caption,media_type,media_url,timestamp";
 

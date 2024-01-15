@@ -26,6 +26,7 @@ const main = async () => {
   console.log(
     `Fetching gallery for ${account?.instagramHandle} from Instagram...`
   );
+  
   const images = await getAllImagesFromInstagram(accessToken!);
   createImageCache();
 
